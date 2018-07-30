@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import ConfigMain from '../../configs/main';
-import { FETCH_POSTS_INITIATE, FETCH_POSTS_COMPLETE } from './actionTypes';
+import { FETCH_POSTS_INITIATE, FETCH_POSTS_COMPLETE, CREATE_POST } from './actionTypes';
 
 export function postsFetchInitiate() {
   return {
@@ -15,7 +15,7 @@ export function postsFetchComplete(data) {
   };
 }
 
-export function fetchPosts(city) {
+export function fetchPosts() {
   return function action(dispatch) {
     //async action entry point
     dispatch(postsFetchInitiate());
@@ -27,6 +27,27 @@ export function fetchPosts(city) {
       })
       .catch(function(error) {
         dispatch(postsFetchComplete(error));
+      });
+  };
+}
+
+export function createPostComplete(data) {
+  return {
+    type: CREATE_POST,
+    data: data,
+  };
+}
+
+export function createPost(values, callback) {
+  return function action(dispatch) {
+    const url = ConfigMain.getPostsApiUrl();
+    return Axios.post(url, values)
+      .then( response => {
+        callback();
+        // dispatch(createPostComplete(response.data));
+      })
+      .catch( error => {
+        dispatch(createPostComplete(error));
       });
   };
 }

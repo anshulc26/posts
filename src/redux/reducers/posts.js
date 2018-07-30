@@ -8,7 +8,7 @@ export default function(state = postsInitialState, action) {
     case FETCH_POSTS_INITIATE:
       return { ...state, isFetching: true };
     case FETCH_POSTS_COMPLETE:
-      return { ...state, posts: _.keys(action.data, 'id'), isFetching: false };
+      return { ...state, posts: _.mapKeys(action.data, 'id'), isFetching: false };
     default:
       return state;
   }

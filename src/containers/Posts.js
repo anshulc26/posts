@@ -35,8 +35,13 @@ class Posts extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  posts: state.posts.posts,
+  isFetching: state.posts.isFetching
+})
+
 const mapDispatchToProps = dispatch => ({
   fetchPosts: bindActionCreators(fetchPosts, dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
