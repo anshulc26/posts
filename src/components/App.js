@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SearchBar from '../containers/SearchBar';
-import WeatherList from '../containers/WeatherList';
+import { Switch, Route } from 'react-router-dom';
+import Posts from '../containers/Posts';
+import PostNew from '../components/posts/New';
 
 class App extends Component {
   render() {
@@ -8,8 +9,10 @@ class App extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12">
-            <SearchBar />
-            <WeatherList />
+            <Switch>
+              <Route path="/posts/new" component={PostNew} />
+              <Route path="/" component={Posts} />
+            </Switch>
           </div>
         </div>
       </div>

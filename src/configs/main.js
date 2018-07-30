@@ -1,8 +1,9 @@
 // const BACKEND_URL_REMOTE_PROD = 'https://test.com';
 // const BACKEND_URL_REMOTE_STAGING = 'https://staging.test.com';
 // const BACKEND_URL_LOCAL = 'http://localhost:3001';
-const WEATHER_API_KEY = '279474140a7e021d1a490756645117b9';
-const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${WEATHER_API_KEY}`;
+const POSTS_API_ROOT_URL = 'http://reduxblog.herokuapp.com/api';
+const POSTS_API_KEY = '?key=ANSHUL1234';
+const POSTS_API_URL = `${POSTS_API_ROOT_URL}/posts${POSTS_API_KEY}`;
 
 var ConfigMain = {
   getBackendURL: function() {
@@ -23,8 +24,8 @@ var ConfigMain = {
 
   // ChallengesScannerDisabled: false,
 
-  getWeatherApiUrl: function() {
-    return WEATHER_API_URL;
+  getPostsApiUrl: function() {
+    return POSTS_API_URL;
   },
 };
 
