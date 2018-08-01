@@ -14,7 +14,7 @@ class Posts extends Component {
     return _.map(this.props.posts, post => {
       return (
         <li className="list-group-item" key={post.id}>
-          {post.title}
+          <Link to={`/posts/${post.id}`}>{post.title}</Link>
         </li>
       );
     });
@@ -38,7 +38,7 @@ class Posts extends Component {
 const mapStateToProps = state => ({
   posts: state.posts.posts,
   isFetching: state.posts.isFetching
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: bindActionCreators(fetchPosts, dispatch)

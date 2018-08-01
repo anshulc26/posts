@@ -24,6 +24,12 @@ var ConfigMain = {
 
   // ChallengesScannerDisabled: false,
 
+  getPostsApiRootUrl: function() {
+    return POSTS_API_ROOT_URL;
+  },
+  getPostsApiKey: function() {
+    return POSTS_API_KEY;
+  },
   getPostsApiUrl: function() {
     return POSTS_API_URL;
   },
